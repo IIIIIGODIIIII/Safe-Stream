@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NSFW Content Skipper</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shield">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <h1>NSFW Skipper</h1>
+      </div>
+      <div class="status" id="status">
+        <span class="status-dot"></span>
+        <span class="status-text">Enabled</span>
+      </div>
+    </header>
+    
+    <div class="content">
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="enableToggle" checked>
+          <span class="slider round"></span>
+        </label>
+        <span>Enable NSFW Detection</span>
+      </div>
+
+      <div class="settings-section">
+        <h2>Settings</h2>
+        
+        <div class="setting-item">
+          <label for="sensitivitySlider">Detection Sensitivity</label>
+          <input type="range" id="sensitivitySlider" min="0" max="100" value="70">
+          <div class="slider-labels">
+            <span>Low</span>
+            <span>High</span>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <label for="autoSkipToggle">Auto-Skip NSFW Content</label>
+          <label class="switch small">
+            <input type="checkbox" id="autoSkipToggle" checked>
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <label for="skipDuration">Skip Duration (seconds)</label>
+          <input type="number" id="skipDuration" min="1" max="60" value="10">
+        </div>
+      </div>
+
+      <div class="platforms-section">
+        <h2>Supported Platforms</h2>
+        <div class="platform-list">
+          <div class="platform">
+            <span>Netflix</span>
+            <span class="platform-status supported">Supported</span>
+          </div>
+          <div class="platform">
+            <span>YouTube</span>
+            <span class="platform-status supported">Supported</span>
+          </div>
+          <div class="platform">
+            <span>Amazon Prime</span>
+            <span class="platform-status coming-soon">Coming Soon</span>
+          </div>
+          <div class="platform">
+            <span>Disney+</span>
+            <span class="platform-status coming-soon">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2025 NSFW Content Skipper</p>
+      <p>Your privacy is our priority. All processing happens locally.</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

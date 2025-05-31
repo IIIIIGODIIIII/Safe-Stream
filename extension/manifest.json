@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "NSFW Content Skipper",
+  "version": "1.0.0",
+  "description": "Detects and skips NSFW content on streaming platforms",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://*.netflix.com/*",
+    "https://*.youtube.com/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/Safe Stream Icon.png",
+      "48": "icons/Safe Stream Icon.png",
+      "128": "icons/Safe Stream Icon.png"
+    }
+  },
+  "icons": {
+    "16": "icons/Safe Stream Icon.png",
+    "48": "icons/Safe Stream Icon.png",
+    "128": "icons/Safe Stream Icon.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.netflix.com/*"],
+      "js": ["content_scripts/netflix.js"]
+    },
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["content_scripts/youtube.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["styles.css"],
+      "matches": ["https://*.netflix.com/*", "https://*.youtube.com/*"]
+    }
+  ]
+}
